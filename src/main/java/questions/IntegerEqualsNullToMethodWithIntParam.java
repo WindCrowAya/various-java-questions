@@ -1,12 +1,12 @@
-package basic_questions;
+package questions;
 
 /**
  * При передаче в метод с параметром int ссылку на объект Integer, равный null, генерируется NPE
  *
  * См. следующие ресурсы:
  * https://stackoverflow.com/questions/2254435/can-an-int-be-null-in-java
- * */
-public class IntegerEqualsNullToIntMethod {
+ */
+public class IntegerEqualsNullToMethodWithIntParam {
 
     static void test(int i) {
         System.out.println("Success!");

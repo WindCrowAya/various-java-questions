@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Значения массива будут меняться, т.к. final указывает на один и тот же объект и на его содержимое никак не влияет.
  * А вот сделать так, чтобы ссылка стала ссылаться на другой объект, нельзя, из-за ключевого слова final.
- * */
+ */
 public class ArrayExample {
     public static void main(String[] args) {
         final int[] array = {1, 2, 3, 4, 5};  //если не указать final, то появится ошибка "Variable 'array' is accessed from within inner class, needs to be declared final"
