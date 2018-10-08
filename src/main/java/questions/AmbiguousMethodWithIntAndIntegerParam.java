@@ -7,12 +7,13 @@ package questions;
  * Также рассмотрены случаи как можно вызвать остальные варианты перегруженного метода
  */
 public class AmbiguousMethodWithIntAndIntegerParam {
-    public static String test(int a)     { return "int"; }
-    public static String test(double a)  { return "double"; }
-    public static String test(Integer a) { return "Integer"; }
-    public static String test(Double a)  { return "Double"; }
-    public static String test(Number a)  { return "Number"; }
-    public static String test(Object a)  { return "Object"; }
+    public static String test(int a)     { return "int "     + a; }
+    public static String test(double a)  { return "double "  + a; }
+    public static String test(float a)   { return "float "   + a; }
+    public static String test(Integer a) { return "Integer " + a; }
+    public static String test(Double a)  { return "Double "  + a; }
+    public static String test(Number a)  { return "Number "  + a; }
+    public static String test(Object a)  { return "Object "  + a; }
 
     public static void main(String[] args) {
         String result;
@@ -50,5 +51,14 @@ public class AmbiguousMethodWithIntAndIntegerParam {
         //      (argument mismatch; <nulltype> cannot be converted to int)
         //    method questions.AmbiguousMethodWithIntAndIntegerParam.test(double) is not applicable
         //      (argument mismatch; <nulltype> cannot be converted to double)
+
+        // TODO: 08.10.2018 попробовать использовать здесь reflection для отображения доступных методов
+        //Если оставить только метод с double-параметром и передать туда int, метод будет вызван
+        //Если оставить методы с double и int, то вызовется более конкретный метод int
+        //Если оставить методы с double и float, то вызовется float; TODO поскольку float более узкий тип?
+        int i = 1;
+        result = test(i);
+        System.out.println("int i = 1:                       " + result);
+
     }
 }
